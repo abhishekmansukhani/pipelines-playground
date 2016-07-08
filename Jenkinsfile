@@ -8,5 +8,5 @@ node {
     sh 'bash ./test.sh'
 
   stage 'Archive'
-    archive includes: '*.xml'
+    archive '*.xml'
 }
