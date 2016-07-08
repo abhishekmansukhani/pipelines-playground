@@ -1,11 +1,10 @@
 
 node {
   stage 'Build'
-    git url: 'https://github.com/ludwikkazmierczak/pipelines-playground'
     sh 'bash ./build.sh'
 
   stage 'unit Tests'
-    unitTests {} 
+    unitTests {}
 
   stage 'Test'
     def splits = [1, 2, 3, 4]
