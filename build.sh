@@ -1,7 +1,9 @@
 #!/bin/bash          
 STR="BUILDING ..."
 
-ERR=$(( $RANDOM % 10 ));
+RND=$RANDOM
+
+ERR=$(( $RND % 10 ));
 
 echo $STR
 
