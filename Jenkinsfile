@@ -8,5 +8,5 @@ node {
     echo 'Hello World!'
 
   stage 'Archive'
-    step([$class: 'ArtifactArchiver', artifacts: '**/target/*.jar', fingerprint: true])
+  echo 'Hello World!'
 }
