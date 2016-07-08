@@ -5,5 +5,5 @@ node {
     sh 'bash ./build.sh'
 
   stage 'Stage 2'
-    echo 'Hello World!"
+    echo 'Hello World!'
 }
