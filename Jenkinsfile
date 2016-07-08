@@ -1,9 +1,12 @@
 
 node {
-  stage 'Stage 1'
+  stage 'Build'
     git url: 'https://github.com/ludwikkazmierczak/pipelines-playground'
     sh 'bash ./build.sh'
 
-  stage 'Stage 2'
+  stage 'Test'
     echo 'Hello World!'
+
+  stage 'Archive'
+    step([$class: 'ArtifactArchiver', artifacts: '**/target/*.jar', fingerprint: true])
 }
