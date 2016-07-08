@@ -5,21 +5,20 @@ node {
     sh 'bash ./build.sh'
 
   stage 'Test'
-    sh 'bash ./test.sh'
+    def splits = [1, 2, 3, 4]
+    def branches = [:]
+    for (int i = 0; i < splits.size(); i++) {
+      def exclusions = splits.get(i);
+      branches["split${i}"] = {
+        node {
+          git url: 'https://github.com/ludwikkazmierczak/pipelines-playground'
+          sh 'bash ./test.sh'
+          sh 'echo "${i}"'
+        }
+      }
+    }
+    parallel branches
 
   stage 'Archive'
     archive '*.xml'
 }
-
-def splits = [1, 2, 3, 4]
-def branches = [:]
-for (int i = 0; i < splits.size(); i++) {
-  def exclusions = splits.get(i);
-  branches["split${i}"] = {
-    node {
-      sh 'bash ./test.sh'
-      sh 'echo ${i}'
-    }
-  }
-}
-parallel branches
