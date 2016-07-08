@@ -16,7 +16,7 @@ def branches = [:]
 for (int i = 0; i < splits.size(); i++) {
   def exclusions = splits.get(i);
   branches["split${i}"] = {
-    node('remote') {
+    node {
       sh 'bash ./test.sh'
     }
   }
