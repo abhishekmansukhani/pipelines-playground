@@ -1,6 +1,5 @@
 #!/bin/bash
-
-STR="BUILDING ..."
+STR="TESTING ..."
 
 RND=$RANDOM
 
@@ -12,9 +11,9 @@ echo "<test_report></test_report>" >> test_results.xml
 
 if [ $ERR -lt 1 ]
 then
-	echo "ERROR DURING BUILD"
+	echo "ERROR DURING TESTS"
 	exit 1
 else
-	echo "SUCCESS"
+	echo "TESTING PASSED"
 	exit 0
 fi
