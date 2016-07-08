@@ -5,7 +5,7 @@ node {
     sh 'bash ./build.sh'
 
   stage 'Test'
-    sh 'bash ./build.sh'
+    sh 'bash ./test.sh'
 
   stage 'Archive'
     archive includes: '*.xml'
