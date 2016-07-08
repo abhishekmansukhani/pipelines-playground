@@ -8,5 +8,5 @@ node {
     echo 'Hello World!'
 
   stage 'Archive'
-  echo 'Hello World!'
+    archive includes: '*.xml'
 }
