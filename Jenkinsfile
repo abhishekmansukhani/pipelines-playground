@@ -19,7 +19,7 @@ node {
         }
       }
     }
-    parallel `branches`
+    parallel branches
 
   stage 'Archive'
     archive '*.xml'
