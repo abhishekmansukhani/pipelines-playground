@@ -15,7 +15,7 @@ node {
         node {
           sh 'bash ./test.sh'
           sh 'echo "${i}"'
-          build: sustaining-wam-page-prod
+          build job: sustaining-wam-page-prod
         }
       }
     }
