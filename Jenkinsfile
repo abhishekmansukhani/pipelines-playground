@@ -3,6 +3,9 @@ node {
   stage 'Build'
     sh 'bash ./build.sh'
 
+  stage 'unit Tests'
+    unitTests {}
+
   stage 'Test'
     def splits = [1, 2, 3, 4]
     def branches = [:]
