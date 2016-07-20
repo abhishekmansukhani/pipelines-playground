@@ -13,13 +13,13 @@ node {
       def exclusions = splits.get(i);
       branches["split${i}"] = {
         node {
-          git url: 'https://github.com/ludwikkazmierczak/pipelines-playground'
           sh 'bash ./test.sh'
           sh 'echo "${i}"'
+          build: group-test-ArticleActionsAdmin
         }
       }
     }
-    parallel branches
+    parallel `branches`
 
   stage 'Archive'
     archive '*.xml'
