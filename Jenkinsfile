@@ -7,6 +7,7 @@ node {
       withEnv(['WORKSPACE=c:/jenkins/workspace/test_executor_$EXECUTOR_NUMBER']) {
         bat: "echo %WORKSPACE%"
     }
+    bat: "echo %WORKSPACE%"
   }
 
   stage 'Unit Tests'
