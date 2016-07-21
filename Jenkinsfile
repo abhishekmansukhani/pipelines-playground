@@ -3,6 +3,9 @@ node {
   stage 'Build'
     sh 'bash ./build.sh'
 
+  stage 'Clean'
+    build job: "sustaining-wam-page-prod"
+
   stage 'unit Tests'
     unitTests {}
 
