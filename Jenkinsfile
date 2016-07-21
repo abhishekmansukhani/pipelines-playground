@@ -2,14 +2,16 @@
 node('ubuntu') {
   stage 'Build'
     sh 'bash ./build.sh'
-
+}
   stage 'Automated Tests'
     node('webdriver'){
       withEnv(['WORKSPACE=c:/jenkins/workspace/test_executor_$EXECUTOR_NUMBER']) {
         bat "echo %WORKSPACE%"
+        git url:
     }
   }
 
+node('ubuntu'){
   stage 'Unit Tests'
     unitTests {}
 
