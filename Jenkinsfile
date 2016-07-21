@@ -6,7 +6,7 @@ node {
   stage 'Clean'
     build job: "sustaining-wam-page-prod"
 
-  stage 'unit Tests'
+  stage 'Unit Tests'
     unitTests {}
 
   stage 'Test'
@@ -16,8 +16,6 @@ node {
       def exclusions = splits.get(i);
       branches["split${i}"] = {
         node {
-          sh 'bash ./test.sh'
-          sh 'echo "${i}"'
           build job: "sustaining-wam-page-prod"
         }
       }
