@@ -7,7 +7,7 @@ node('ubuntu') {
 node('webdriver'){
   stage 'Automated Tests'
       withEnv(['WORKSPACE=c:/jenkins/workspace/test_executor_$EXECUTOR_NUMBER']) {
-        bat 'echo %WORKSPACE%''
+        bat 'echo %WORKSPACE%'
         git url: 'git@github.com:Wikia/selenium-tests.git'
     }
 }
