@@ -2,6 +2,9 @@
 node('ubuntu') {
   stage 'Build'
     sh 'bash ./build.sh'
+
+  stage 'Unit Tests'
+    unitTests {}
 }
 
 node('webdriver'){
@@ -12,10 +15,6 @@ node('webdriver'){
     bat "gradlew.bat test -Dgroups=WamPage001 -DmockAds=true -Denv=prod -Dbrowser=CHROME -g %WORKSPACE% && exit %%ERRORLEVEL%%"
     archive '**/logs/, **/testng-results.xml, **/testng-failed.xml'
 }
-
-node('ubuntu'){
-  stage 'Unit Tests'
-    unitTests {}
 
   stage 'Archive'
     archive '*.xml'
